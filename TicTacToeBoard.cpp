@@ -1,4 +1,5 @@
 #include "TicTacToeBoard.h"
+
 /**
  * Class for representing a 3x3 Tic-Tac-Toe game board, using the Piece enum
  * to represent the spaces on the board.
@@ -19,7 +20,22 @@ TicTacToeBoard::TicTacToeBoard()
 **/
 Piece TicTacToeBoard::toggleTurn()
 {
-  return Invalid;
+  if(turn == X)
+  {
+    turn = O;
+    
+  }
+  else if(turn == O)
+  {
+    turn = X;
+    
+  }
+  else
+  {
+    turn = Invalid;
+  }
+  
+  return turn;
 }
 
 /**
@@ -33,7 +49,17 @@ Piece TicTacToeBoard::toggleTurn()
 **/ 
 Piece TicTacToeBoard::placePiece(int row, int column)
 {
+  if(row < 3 && column < 3)
+  {
+    if(board[row][column] == Blank)
+    {
+      board[row][column] = turn;
+      toggleTurn();
+    }
+    return board[row][column];
+  }
   return Invalid;
+ 
 }
 
 /**
@@ -42,6 +68,14 @@ Piece TicTacToeBoard::placePiece(int row, int column)
 **/
 Piece TicTacToeBoard::getPiece(int row, int column)
 {
+  if(row > 2 || column > 2)
+  {
+    return Invalid;
+  }
+  if(row < 3 && column <  3)
+  {
+    return board[row][column];
+  }
   return Invalid;
 }
 

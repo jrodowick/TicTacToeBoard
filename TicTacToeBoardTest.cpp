@@ -20,3 +20,41 @@ TEST(TicTacToeBoardTest, sanityCheck)
 	ASSERT_TRUE(true);
 }
 */
+TEST(TicTacToeBoardTest, SmokeTest)
+{
+	TicTacToeBoard obj;
+	ASSERT_TRUE( true );
+}
+
+TEST(TicTacToeBoardTest, ToggleTurnTest)
+{
+	TicTacToeBoard obj;
+	ASSERT_TRUE( obj.toggleTurn() == 'O');
+	ASSERT_TRUE( obj.toggleTurn() == 'X');
+}
+
+TEST(TicTacToeBoardTest, ValidPLacement)
+{
+	TicTacToeBoard obj;
+	ASSERT_TRUE( obj.placePiece(0,0) == 'X' );
+	ASSERT_TRUE( obj.placePiece(2,2) == 'O' );
+}
+
+TEST(TicTacToeBoardTest, InvalidPlacement)
+{
+	TicTacToeBoard obj;
+	ASSERT_TRUE( obj.placePiece(3,3) == '?' );
+}
+
+TEST(TicTacToeBoardTest, InvalidGetPiece)
+{
+	TicTacToeBoard obj;
+	ASSERT_TRUE( obj.getPiece(3,3) == '?' );
+}
+
+TEST(TicTacToeBoardTest, ValidGetPiece)
+{
+	TicTacToeBoard obj;
+	ASSERT_TRUE( obj.placePiece(0,0) == 'X');
+	ASSERT_TRUE( obj.getPiece(0,0) == 'X');
+}
