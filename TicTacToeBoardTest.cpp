@@ -58,3 +58,22 @@ TEST(TicTacToeBoardTest, ValidGetPiece)
 	ASSERT_TRUE( obj.placePiece(0,0) == 'X');
 	ASSERT_TRUE( obj.getPiece(0,0) == 'X');
 }
+
+TEST(TicTacToeBoardTest, FillBoardTest)
+{
+	TicTacToeBoard obj;
+	for(int i = 0; i < 3; i++)
+	{
+		for(int j = 0; j < 3; j++)
+		{
+			ASSERT_TRUE( obj.placePiece(i,j) != '?');
+			ASSERT_TRUE( obj.placePiece(i,j) != ' ');
+		}
+	}
+}
+
+TEST(TicTacToeBoardTest, TestBlankWinner)
+{
+	TicTacToeBoard obj;
+	ASSERT_TRUE( obj.getWinner());
+}

@@ -30,10 +30,6 @@ Piece TicTacToeBoard::toggleTurn()
     turn = X;
     
   }
-  else
-  {
-    turn = Invalid;
-  }
   
   return turn;
 }
