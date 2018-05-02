@@ -6,6 +6,7 @@ before_install:
   - mkdir gtest
   - cd gtest
   - git clone https://github.com/google/googletest.git
+  - export GTEST_DIR=$(pwd)
   - cd googletest/googletest
   - cd make
   - make
