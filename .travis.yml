@@ -11,3 +11,8 @@ before_install:
   - cd make
   - make
   - cd ../../../..
+
+script:
+  - make clean
+  - make
+  - ./TicTacToeBoardTest
